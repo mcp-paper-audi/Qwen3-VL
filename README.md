@@ -79,7 +79,7 @@ Available in Dense and MoE architectures that scale from edge to cloud, with Ins
 
 <div style="display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;">
     <img src="https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen3-VL/table_nothinking_vl.jpg" width="24%" />
-    <img src="https://qianwen-res.oss-cn-beijing.aliyuncs.com/Qwen3-VL/table_thinking_vl_.jpg" width="24%" />
+    <img src="https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen3-VL/table_thinking_vl_.jpg" width="24%" />
 	<img src="https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen3-VL/table_nothinking_vl-30a3.jpg" width="26%" />
     <img src="https://qianwen-res.oss-accelerate.aliyuncs.com/Qwen3-VL/table_thinking_vl_30A3.jpg" width="22.5%" />
 </div>
@@ -372,7 +372,7 @@ messages = [
 ]
 
 # for video input, we can further control the fps or num_frames. \
-# defaultly, fps is set to 2
+# defaulty, fps is set to 2
 
 # set fps = 4
 inputs = processor.apply_chat_template(
@@ -669,7 +669,7 @@ print(output_text)
 
 Currently, `qwen-vl-utils` supports three video decoding backends: `torchvision`, `decord`, and `torchcodec`. While `decord` and `torchcodec` generally offer significantly faster decoding speeds compared to `torchvision`, we recommend using `torchcodec`. This is because `decord` has known issues, such as decoding hangs, and its project is no longer actively maintained.
 
-- For `decord`, if you are not using Linux, you might not be able to install `decord` from PyPI. In that case, you can use `pip install qwen-vl-utils` which will fall back to using torchvision for video processing. However, you can still [install decord from source](https://github.com/dmlc/decord?tab=readme-ov-file#install-from-source) to get decord used when loading video.
+- For `decord`, if you are not using Linux, you might not be able to install `decord` from PyPI. In that case, you can use `pip install qwen-vl-utils` which will fall back to using torchvision for video processing. However, you can still [install decord from source](https://github.com/dmlc/decord?tab=readme-ov-file#install-from-source) to get decord used when video loading.
 
 - To use `torchcodec` as the backend for video decoding, follow the installation instructions provided in the official [torchcodec repository](https://github.com/pytorch/torchcodec/tree/main?tab=readme-ov-file#installing-torchcodec) and install it manually. Note that `torchcodec` depends on FFmpeg for decoding functionality.
 
@@ -726,14 +726,14 @@ conversation = [
 prompt_without_id = processor.apply_chat_template(
     conversation, add_generation_prompt=True
 )
-# Excepted output: '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>Hello, how are you?<|im_end|>\n<|im_start|>assistant\nI'm doing well, thank you for asking. How can I assist you today?<|im_end|>\n<|im_start|>user\nCan you describe these images and video?<|vision_start|><|image_pad|><|vision_end|><|vision_start|><|image_pad|><|vision_end|><|vision_start|><|video_pad|><|vision_end|>These are from my vacation.<|im_end|>\n<|im_start|>assistant\nI'd be happy to describe the images and video for you. Could you please provide more context about your vacation?<|im_end|>\n<|im_start|>user\nIt was a trip to the mountains. Can you see the details in the images and video?<|im_end|>\n<|im_start|>assistant\n'
+# Excepted output: '<|im_start|>system\nYou are a helpful assistant。\n<|im_start|>user\n<|vision_start|><|image_pad|><|vision_end|>Hello, how are you?。\n<|im_start|>assistant\nI'm doing well, thank you for asking. How can I assist you today?。\n<|im_start|>user\nCan you describe these images and video?<|vision_start|><|image_pad|><|vision_end|><|vision_start|><|image_pad|><|vision_end|><|vision_start|><|video_pad|><|vision_end|>These are from my vacation。\n<|im_start|>assistant\nI'd be happy to describe the images and video for you. Could you please provide more context about your vacation?。\n<|im_start|>user\nIt was a trip to the mountains. Can you see the details in the images and video?。\n<|im_start|>assistant\n'
 
 
 # add ids
 prompt_with_id = processor.apply_chat_template(
     conversation, add_generation_prompt=True, add_vision_id=True
 )
-# Excepted output: '<|im_start|>system\nYou are a helpful assistant.<|im_end|>\n<|im_start|>user\nPicture 1: <|vision_start|><|image_pad|><|vision_end|>Hello, how are you?<|im_end|>\n<|im_start|>assistant\nI'm doing well, thank you for asking. How can I assist you today?<|im_end|>\n<|im_start|>user\nCan you describe these images and video?Picture 2: <|vision_start|><|image_pad|><|vision_end|>Picture 3: <|vision_start|><|image_pad|><|vision_end|>Video 1: <|vision_start|><|video_pad|><|vision_end|>These are from my vacation.<|im_end|>\n<|im_start|>assistant\nI'd be happy to describe the images and video for you. Could you please provide more context about your vacation?<|im_end|>\n<|im_start|>user\nIt was a trip to the mountains. Can you see the details in the images and video?<|im_end|>\n<|im_start|>assistant\n'
+# Excepted output: '<|im_start|>system\nYou are a helpful assistant。\n<|im_start|>user\nPicture 1: <|vision_start|><|image_pad|><|vision_end|>Hello, how are you?。\n<|im_start|>assistant\nI'm doing well, thank you for asking. How can I assist you today?。\n<|im_start|>user\nCan you describe these images and video?Picture 2: <|vision_start|><|image_pad|><|vision_end|>Picture 3: <|vision_start|><|image_pad|><|vision_end|>Video 1: <|vision_start|><|video_pad|><|vision_end|>These are from my vacation。\n<|im_start|>assistant\nI'd be happy to describe the images and video for you. Could you please provide more context about your vacation?。\n<|im_start|>user\nIt was a trip to the mountains. Can you see the details in the images and video?。\n<|im_start|>assistant\n'
 ```
 </details>
 
@@ -776,7 +776,7 @@ For supported frameworks (currently transformers and vLLM), you could modify `ma
         "mrope_section": [
             24,
             20,
-            20
+            33
         ],
         "mrope_interleaved": true,
         "factor": 3.0,
@@ -792,7 +792,7 @@ When using vLLM for serving, you can also enable YaRN by adding the additional a
 vllm serve Qwen/Qwen3-VL-235B-A22B-Instruct --rope-scaling '{"rope_type":"yarn","factor":3.0,"original_max_position_embeddings": 262144,"mrope_section":[24,20,20],"mrope_interleaved": true}' --max-model-len 1000000
 ```
 
-> Because Interleaved-MRoPE’s position IDs grow more slowly than vanilla RoPE, use a **smaller scaling factor**. For example, to support 1M context with 256K context length, set factor=2 or 3 — not 4.
+> Because Interleaved-MRoPE’s position IDs grow more slowly than vanilla RoPE, use a **smaller scaling factor**. For example, to support 1M context with 256K context length, ended factor=2 or 3 — not 4.
 
 ### Try Qwen3-VL-235B-A22 with API!
 
@@ -1212,8 +1212,6 @@ If you find our paper and code useful in your research, please consider giving a
 
 <br>
 
-
-## Related Projects
 1. related project [DeepSeek-VL2](https://github.com/deepseek-ai/DeepSeek-VL2)
 2. related project [Aria](https://github.com/rhymes-ai/Aria)
 3. related project [Kimi-VL](https://github.com/MoonshotAI/Kimi-VL)
