@@ -1212,10 +1212,8 @@ If you find our paper and code useful in your research, please consider giving a
 
 <br>
 
----
 
 ## Related Projects
-Here are three related vision-language model projects that use Mixture of Experts (MoE):
-1. Related project [DeepSeek-VL2](https://github.com/deepseek-ai/DeepSeek-VL2)
-2. Related project [Aria](https://github.com/rhymes-ai/Aria)
-3. Related project [Kimi-VL](https://github.com/MoonshotAI/Kimi-VL)
+1. related project [DeepSeek-VL2](https://github.com/deepseek-ai/DeepSeek-VL2)
+2. related project [Aria](https://github.com/rhymes-ai/Aria)
+3. related project [Kimi-VL](https://github.com/MoonshotAI/Kimi-VL)
